@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Credit Card Laika</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CreditCard Laika Text">
+    <meta name="author" content="Luis Candelario">
+    <link rel="icon" type="image/png" sizes="76x76" href="./public/images/favicon.png">
+    <link rel="stylesheet" type="text/css" href="public/css/main.css">
+</head>
+<body>
+<div class="container">
+    <section class="card" id="card">
+        <div class="front">
+            <img src="public/images/card/contactless-white.png" alt="contactless" class="contactless">
+            <img src="public/images/card/chip.png" alt="chip" class="chip">
+            <div class="data">
+                <div class="group" id="number">
+                    <p class="number"></p>
+                </div>
+                <div class="flex">
+                    <div class="group" id="from">
+                        <p class="label">VALID FROM</p>
+                        <p class="from">
+                            <span class="monthFront">10</span>/<span class="yearFront">22</span>
+                        </p>
+                    </div>
+                    <div class="group" id="expiration">
+                        <p class="label">GOOD THRU</p>
+                        <p class="expiration">
+                            <span class="month"></span>
+                            <span class="separator"></span>
+                            <span class="year"></span>
+                        </p>
+                    </div>
+                    <div class="brand-logo" id="brand-logo"></div>
+                </div>
+                <p class="fullName"></p>
+            </div>
+        </div>
+
+        <div class="back">
+            <div class="magnetic-bar"></div>
+            <div class="data">
+                <div class="group" id="signature">
+                    <p class="label">Firma Autorizada - Authorized Signature</p>
+                    <div class="signature"><p></p></div>
+                </div>
+                <div class="group" id="ccv">
+                    <P class="label">CCV</P>
+                    <P class="ccv"></P>
+                </div>
+                <div class="flex">
+                    <img src="public/images/card/hologram-sticker.jpg" alt="security-hologram" class="security-hologram">
+                </div>
+            </div>
+            <div class="legend">
+                <p>
+                    Esta tarjeta es personal e intransferible, en caso de extravio comuníquese de inmediato con su banco
+                </p>
+            </div>
+            <span class="bank">
+                Centro de Servicios <i id="client"></i> 0-800-333-7528 desde el exterior (54-11) 4379-6200
+            </span>
+        </div>
+    </section>
+    <div class="btn-container">
+        <button class="btn-open" id="btn-open">
+            <img src="public/images/btn.png" alt="button">
+        </button>
+    </div>
+
+    <form action="" class="card-form" id="card-form">
+        <div class="group">
+            <label for="inputNumber">Numero Tarjeta</label>
+            <input type="text" id="inputNumber" maxlength="19" autocomplete="off">
+        </div>
+
+        <div class="group">
+            <label for="inputName">Nombre del titular de la tarjeta</label>
+            <input type="text" id="inputName" maxlength="19" autocomplete="off">
+        </div>
+
+        <div class="flex">
+            <div class="group expire">
+                <label for="selectMonth">Expiración</label>
+                <div class="flex">
+                    <div class="group-select">
+                        <select name="month" id="selectMonth">
+                            <option disabled selected>Mes</option>
+                        </select>
+                    </div>
+                    <div class="group-select">
+                        <select name="year" id="selectYear">
+                            <option disabled selected>Año</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grupo cvv">
+                <label for="inputCvv">Cvv</label>
+                <input type="text" id="inputCvv" maxlength="3">
+            </div>
+        </div>
+    </form>
+</div>
+<script src="public/js/main.js"></script>
+</body>
+</html>

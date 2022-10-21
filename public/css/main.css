@@ -1,0 +1,312 @@
+@import url('labels-fonts.css');
+@import url('signature-fonts.css');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --white_color: #fff;
+    --black_color: #000;
+    --cream_color: #dfe1d0;
+    --magnetic-bar-color: #000005FF;
+    --shadow-color: #5A74944C;
+    --primary-color: #1838B666;
+    --form_label_color: #7d8994;
+    --form_label_light_color: #a0a8ad;
+    --form_border_color: #93bded;
+}
+
+.container {
+    width: 90%;
+    max-width: 1000px;
+    padding: 40px 20px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card {
+    width: 100%;
+    max-width: 550px;
+    position: relative;
+    color: var(--white_color);
+    transition: 0.3s ease all;
+    transform: rotateY(0deg);
+    transform-style: preserve-3d;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.card.active {
+    transform: rotateY(180deg);
+}
+
+.card > div {
+    padding: 30px;
+    border-radius: 15px;
+    min-height: 315px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 10px 10px 0 var(--shadow-color);
+}
+
+.card .front {
+    width: 100%;
+    background: url(../images/card/background/bg-black.jpg);
+    background-size: cover;
+}
+
+.front .brand-logo {
+    text-align: right;
+    min-height: 50px;
+}
+
+.front .brand-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    max-width: 90px;
+    max-height: 60px;
+    min-width: 90px;
+}
+
+.front .chip {
+    width: 100%;
+    max-width: 50px;
+    margin-bottom: 20px;
+}
+
+.front .contactless {
+    width: 8%;
+    max-width: 50px;
+    margin: 0 90%;
+}
+
+.front .label {
+    font-size: 12px;
+    color: var(--form_label_light_color);
+    margin: 5px;
+}
+
+.fullName {
+    min-width: 80%;
+    margin-top: -12px;
+}
+
+.front .number,
+.front .fullName {
+    color: var(--white_color);
+    font-size: 22px;
+    text-transform: uppercase;
+}
+
+.front .flex {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.back {
+    background-image: url(../images/card/background/bg-black.jpg);
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+    color: var(--form_label_light_color);
+}
+
+.back .magnetic-bar {
+    height: 40px;
+    background: var(--magnetic-bar-color);
+    width: 100%;
+    position: absolute;
+    top: 30px;
+    border-color: var(--shadow-color);
+    border-width: 1px 0;
+    border-style: solid;
+    left: 0;
+}
+
+.back .security-hologram {
+    width: 108%;
+    max-width: 100px;
+    margin: 15px 5px;
+}
+
+.back .data {
+    margin-top: 60px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.back .data p {
+    margin-bottom: 5px;
+
+}
+
+.back .data #signature {
+    width: 65%;
+}
+
+.back .data #signature .signature {
+    height: 40px;
+    background: repeating-linear-gradient(var(--cream_color) 0, var(--cream_color) 5px, var(--white_color) 5px, var(--white_color) 10px);
+}
+
+.back .data #signature .signature p {
+    font-family: 'Herr Von Muellerhoff', cursive;
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 40px;
+    padding: 0 10px;
+    color: var(--black_color);
+}
+
+.back .data #ccv {
+    width: 20%;
+}
+
+.back .data #ccv .ccv {
+    background: var(--white_color);
+    height: 40px;
+    color: var(--black_color);
+    padding: 10px;
+    text-align: center;
+}
+
+.back .legend {
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.back .bank {
+    font-size: 14px;
+    color: var(--white_color);
+    text-decoration: none;
+}
+
+.btn-container .btn-open {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    line-height: 20px;
+    position: relative;
+    top: -25px;
+    z-index: 3;
+    border-radius: 100%;
+    box-shadow: 5px 4px 8px var(--primary-color);
+    transition: all 0.2s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-container .btn-open.active {
+    transform: rotate(45deg);
+}
+
+.btn-container .btn-open img {
+    width: 50px;
+    height: 50px;
+}
+
+.btn-container .btn-open:hover {
+    background: var(--black_color);
+}
+
+.card-form {
+    background: var(--white_color);
+    width: 100%;
+    max-width: 700px;
+    padding: 150px 30px 30px 30px;
+    border-radius: 10px;
+    position: relative;
+    top: -150px;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    transition: clip-path 0.3s ease-out;
+}
+
+.card-form.active {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    background-color: var(--cream_color);
+}
+
+.card-form label {
+    display: block;
+    color: var(--form_label_color);
+    margin: 5px;
+    font-size: 16px;
+}
+
+.card-form input,
+.card-form select,
+.btn-send {
+    border: 2px solid ;
+    font-size: 18px;
+    height: 50px;
+    width: 100%;
+    padding: 5px 12px;
+    transition: 0.3s ease all;
+    border-radius: 5px;
+    background-color: var(--white_color);
+}
+
+.card-form input:hover,
+.card-form select:hover {
+    border: 2px solid var(--form_border_color);
+}
+
+.card-form input:focus,
+.card-form select:focus {
+    outline: rgb(4, 4, 4);
+    box-shadow: 1px 7px 10px -5px rgba(90, 116, 148, 0.3);
+}
+
+.card-form input {
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+
+.card-form .flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-form .expire {
+    width: 100%;
+}
+
+.card-form .cvv {
+    min-width: 100px;
+}
+
+.card-form .group-select {
+    width: 100%;
+    margin-right: 15px;
+    position: relative;
+}
+
+.card-form select {
+    -webkit-appearance: none;
+}
+
+.card-form .btn-send {
+    border: none;
+    text-transform: capitalize;
+    padding: 10px;
+    font-size: 18px;
+    color: var(--white_color);
+    background-color: #0000007c;
+    box-shadow: 2px 2px 10px 0 rgba(0, 0, 5, 0.685);
+}
+
+.card-form .btn-send:hover {
+    background-color: rgba(0, 0, 0, 0.716);
+}
+
